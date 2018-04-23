@@ -1,0 +1,8 @@
+>settings
+	appName "Test app"
+	wydt ">"
+>dialogs
+	-main
+		text "This is text app!"
+	-!koniec
+		text "aaa"

@@ -1,0 +1,3 @@
+# PJRCompiler
+..\PJRCompiler\SectionManager.go:8: invalid operation: element == tmpSectionName (mismatched types rune and string)
+..\PJRCompiler\SectionManager.go:9: cannot use element (type rune) as type string in append
