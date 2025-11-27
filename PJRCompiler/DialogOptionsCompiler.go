@@ -1,7 +1,7 @@
 package PJRCompiler
 
 import "errors"
-import "ConvertingTools"
+import "pjre/ConvertingTools"
 
 // TODO: Zdecydowanie popraw kod
 func (compiler *PJRCompiler) compileDialogOptions(processedLabels map[string][]string) ([]byte, error) {

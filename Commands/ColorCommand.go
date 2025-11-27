@@ -1,10 +1,10 @@
 package Commands
 
-import "SectionInformations"
+import "pjre/SectionInformations"
 import "strconv"
 import "errors"
 import "strings"
-import "ConvertingTools"
+import "pjre/ConvertingTools"
 
 // color NUMBER:0-16
 type ColorCommand struct {

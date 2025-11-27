@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 import "os"
-import "SectionInformations"
-import "ScriptsManager"
-import "PJRCompiler"
+import "pjre/SectionInformations"
+import "pjre/ScriptsManager"
+import "pjre/PJRCompiler"
 
 func main() {
 	if len(os.Args) != 3 {

@@ -1,7 +1,7 @@
 package PJRCompiler
 
 import "errors"
-import "ConvertingTools"
+import "pjre/ConvertingTools"
 
 func (compiler *PJRCompiler) compileDialogs(processedLabels map[string][]string) ([]byte, error) {
 	retByteCode := make([]byte, 0)

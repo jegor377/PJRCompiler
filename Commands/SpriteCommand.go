@@ -1,22 +1,22 @@
 package Commands
 
-import "SectionInformations"
+import "pjre/SectionInformations"
 import "errors"
 import "strings"
-import "ConvertingTools"
+import "pjre/ConvertingTools"
 
-// bgSong songName
-type BgSongCommand struct {
+// sprite spriteName
+type SpriteCommand struct {
 	commandId uint8
 	name string
 }
 
-func NewBgSongCommand() *BgSongCommand {
-	return &BgSongCommand{8 , "narrator"}
+func NewSpriteCommand() *SpriteCommand {
+	return &SpriteCommand{7 , "narrator"}
 }
 
 // [command id:1 byte][parameter:x bytes]
-func (cmd *BgSongCommand) GetByteCode(parameters []string, sectionName string, labelName string, sinfo *SectionInformations.SectionInformations) ([]byte, error) {
+func (cmd *SpriteCommand) GetByteCode(parameters []string, sectionName string, labelName string, sinfo *SectionInformations.SectionInformations) ([]byte, error) {
 	retByteCode := make([]byte, 0)
 	if !cmd.isParametersCountCorrect(parameters) {
 		if len(labelName) > 0 {
@@ -25,7 +25,7 @@ func (cmd *BgSongCommand) GetByteCode(parameters []string, sectionName string, l
 		return nil, errors.New("Parameters count is incorrect: " + cmd.name + " \"" + strings.Join(parameters, "\" \"") + "\", section name: " + sectionName)
 	}
 
-	dialogOptionId, err := sinfo.GetSongTag(parameters[0])
+	dialogOptionId, err := sinfo.GetSpriteTag(parameters[0])
 	if err != nil {
 		return nil, err
 	}
@@ -40,6 +40,6 @@ func (cmd *BgSongCommand) GetByteCode(parameters []string, sectionName string, l
 	return retByteCode, nil
 }
 
-func (cmd *BgSongCommand) isParametersCountCorrect(parameters []string) bool {
+func (cmd *SpriteCommand) isParametersCountCorrect(parameters []string) bool {
 	return len(parameters) == 1
 }

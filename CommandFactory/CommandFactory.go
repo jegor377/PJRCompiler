@@ -1,7 +1,7 @@
 package CommandFactory
 
 import "errors"
-import "Commands"
+import "pjre/Commands"
 
 type CommandFactory struct {
 	commands map[string]Command

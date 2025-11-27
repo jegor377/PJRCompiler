@@ -1,6 +1,6 @@
 package Commands
 
-import "SectionInformations"
+import "pjre/SectionInformations"
 import "errors"
 import "strings"
 

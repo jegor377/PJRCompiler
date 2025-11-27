@@ -1,10 +1,10 @@
 package Commands
 
-import "SectionInformations"
+import "pjre/SectionInformations"
 import "strconv"
 import "errors"
 import "strings"
-import "ConvertingTools"
+import "pjre/ConvertingTools"
 
 // bgColor NUMBER:0-1
 type BgColorCommand struct {

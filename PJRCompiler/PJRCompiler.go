@@ -1,8 +1,8 @@
 package PJRCompiler
 
-import "ScriptsManager"
-import "CommandFactory"
-import "SectionInformations"
+import "pjre/ScriptsManager"
+import "pjre/CommandFactory"
+import "pjre/SectionInformations"
 
 type PJRCompiler struct {
 	scriptsManager *ScriptsManager.ScriptsManager

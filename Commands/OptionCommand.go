@@ -1,22 +1,22 @@
 package Commands
 
-import "SectionInformations"
+import "pjre/SectionInformations"
 import "errors"
 import "strings"
-import "ConvertingTools"
+import "pjre/ConvertingTools"
 
-// narrator songName
-type NarratorCommand struct {
+// option dialogOptionName
+type OptionCommand struct {
 	commandId uint8
 	name string
 }
 
-func NewNarratorCommand() *NarratorCommand {
-	return &NarratorCommand{6 , "narrator"}
+func NewOptionCommand() *OptionCommand {
+	return &OptionCommand{5 , "option"}
 }
 
 // [command id:1 byte][parameter:x bytes]
-func (cmd *NarratorCommand) GetByteCode(parameters []string, sectionName string, labelName string, sinfo *SectionInformations.SectionInformations) ([]byte, error) {
+func (cmd *OptionCommand) GetByteCode(parameters []string, sectionName string, labelName string, sinfo *SectionInformations.SectionInformations) ([]byte, error) {
 	retByteCode := make([]byte, 0)
 	if !cmd.isParametersCountCorrect(parameters) {
 		if len(labelName) > 0 {
@@ -25,12 +25,12 @@ func (cmd *NarratorCommand) GetByteCode(parameters []string, sectionName string,
 		return nil, errors.New("Parameters count is incorrect: " + cmd.name + " \"" + strings.Join(parameters, "\" \"") + "\", section name: " + sectionName)
 	}
 
-	dialogOptionId, err := sinfo.GetSongTag(parameters[0])
+	dialogOptionId, err := sinfo.GetDialogOptionTag(parameters[0])
 	if err != nil {
 		return nil, err
 	}
 
-	convertedDialogId, err := ConvertingTools.ConvertUint32ToBytesLittleEndian(dialogOptionId)
+	convertedDialogId, err := ConvertingTools.ConvertUint32ToBytesLittleEndian(dialogOptionId.Id)
 	if err != nil {
 		return nil, err
 	}
@@ -40,6 +40,6 @@ func (cmd *NarratorCommand) GetByteCode(parameters []string, sectionName string,
 	return retByteCode, nil
 }
 
-func (cmd *NarratorCommand) isParametersCountCorrect(parameters []string) bool {
+func (cmd *OptionCommand) isParametersCountCorrect(parameters []string) bool {
 	return len(parameters) == 1
 }

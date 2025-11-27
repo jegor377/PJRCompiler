@@ -1,7 +1,7 @@
 package PJRCompiler
 
 import "errors"
-import "ConvertingTools"
+import "pjre/ConvertingTools"
 
 // TODO: ZDECYDOWANIE popraw kod
 func (compiler *PJRCompiler) Compile() ([]byte, error) {
